@@ -5,10 +5,8 @@ public class EmployeeFullTime extends Employee{
     private double soTienPhat;
     private double luongCung;
 
-    public EmployeeFullTime() {
-    }
 
-    public EmployeeFullTime(String id, String name, int age, String phone, String email, boolean status, double soTienThuong, double soTienPhat, double luongCung) {
+    public EmployeeFullTime(String id, String name, String age, String phone, String email, boolean status, double soTienThuong, double soTienPhat, double luongCung) {
         super(id, name, age, phone, email, status);
         this.soTienThuong = soTienThuong;
         this.soTienPhat = soTienPhat;

@@ -3,7 +3,7 @@ package _Model;
 public class Employee {
     protected String id;
     protected String name;
-    protected int age;
+    protected String age;
     protected String phone;
     protected String email;
     protected boolean status;
@@ -11,7 +11,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String id, String name, int age, String phone, String email, boolean status) {
+    public Employee(String id, String name, String age, String phone, String email, boolean status) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -36,11 +36,11 @@ public class Employee {
         this.name = name;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
@@ -78,5 +78,11 @@ public class Employee {
                 ", email='" + email + '\'' +
                 ", status=" + status +
                 '}';
+    }
+    public void display(){
+        System.out.println("NhanVien{" + "id=" + id + ", name=" + name + ", age=" + age + ", phone=" + phone + ", email=" + email + ", status" + status + '}');
+    }
+    public void displayStatus(){
+        System.out.println("Tên nhân viên" + name + ", Trạng thái = " + status);
     }
 }

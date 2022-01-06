@@ -7,7 +7,7 @@ public class EmployeePartTime extends Employee{
     public EmployeePartTime() {
     }
 
-    public EmployeePartTime(String id, String name, int age, String phone, String email, boolean status, int workingTime) {
+    public EmployeePartTime(String id, String name, String age, String phone, String email, boolean status, int workingTime) {
         super(id, name, age, phone, email, status);
         this.workingTime = workingTime;
     }
