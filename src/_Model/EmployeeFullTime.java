@@ -42,4 +42,19 @@ public class EmployeeFullTime extends Employee{
                 ", lương=" + tinhLuongFullTime() +
                 '}';
     }
+    public void display() {
+        System.out.println("Nhân viên Full Time: " +
+                "Mã nhân viên= " + id +
+                ", Tên= " + name +
+                ", Tuổi= " + age +
+                ", Số điênh thoại= " +
+                ", Địa chỉ email= " +
+                ", Số tiền thưởng= " +
+                ", Số tiền phạt= " +
+                ", Lương cứng= " +
+                ", Tổng lương= " + tinhLuongFullTime());
+    }
+    public String writeEmployFullTime() {
+        return id + "," + name + "," + age + "," + phone + "," + email + "," + status + "," + soTienThuong + "," + soTienPhat + "," + luongCung + "," + tinhLuongFullTime();
+    }
 }

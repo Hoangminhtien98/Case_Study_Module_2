@@ -8,14 +8,14 @@ import _ReadAndWriteFileText.ReadAndWriteFile;
 
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ManagerEmployee {
-    ArrayList<Employee> employees = ReadAndWriteFile.readFile("src/FileTxt/QLNV.txt");
-    Scanner scanner = new Scanner(System.in);
-    SortNV sortNV = new SortNV();
-    Validate validate = new Validate();
+    List<Employee> employees = ReadAndWriteFile.readFile("src/QLNV.txt");
+    static Scanner scanner = new Scanner(System.in);
+    static SortEmp sortEmp = new SortEmp();
+    static Validate validate = new Validate();
 
 
     public ManagerEmployee() throws IOException {
@@ -51,35 +51,35 @@ public class ManagerEmployee {
         }
     }
 
-    public void addNVFullTime() throws IOException {
-        String idNv = getIDNv();
-        String nameNv = getNameNv();
-        String ageNv = getAgeNv();
-        String phoneNv = getPhoneNv();
-        String emailNv = getEmailNv();
-        boolean status = isStatusNv();
+    public void addEmployFullTime() throws IOException {
+        String idEmp = getIDEmp();
+        String nameEmp = getNameEmp();
+        String ageEmp = getAgeEmp();
+        String phoneEmp = getPhoneEmp();
+        String emailEmp = getEmailEmp();
+        boolean status = isStatusEmp();
         System.out.println("Nhập số tiền thưởng: ");
         double tienThuong = Double.parseDouble(scanner.nextLine());
         System.out.println("Nhập số tiền phạt: ");
         double tienPhat = Double.parseDouble(scanner.nextLine());
         System.out.println("Nhập lương cứng: ");
         double luongCung = Double.parseDouble(scanner.nextLine());
-        employees.add(new EmployeeFullTime(idNv, nameNv, ageNv, phoneNv, emailNv, status, tienThuong, tienPhat, luongCung));
-        ReadAndWriteFile.writeFile("src/FileTxt/QLNV.txt", employees);
+        employees.add(new EmployeeFullTime(idEmp, nameEmp, ageEmp, phoneEmp, emailEmp, status, tienThuong, tienPhat, luongCung));
+        ReadAndWriteFile.writeFile("src/QLNV.txt", employees);
         System.out.println("Thêm nhân viên thành công!!");
     }
 
-    public void addNVPartTime() throws IOException {
-        String idNv = getIDNv();
-        String nameNv = getNameNv();
-        String ageNv = getAgeNv();
-        String phoneNv = getPhoneNv();
-        String emailNv = getEmailNv();
-        boolean status = isStatusNv();
+    public void addEmployPartTime() throws IOException {
+        String idNv = getIDEmp();
+        String nameNv = getNameEmp();
+        String ageNv = getAgeEmp();
+        String phoneNv = getPhoneEmp();
+        String emailNv = getEmailEmp();
+        boolean status = isStatusEmp();
         System.out.println("Nhập số giờ làm: ");
         int time = Integer.parseInt(scanner.nextLine());
         employees.add(new EmployeePartTime(idNv, nameNv, ageNv, phoneNv, emailNv, status, time));
-        ReadAndWriteFile.writeFile("src/FileTxt/QLNV.txt", employees);
+        ReadAndWriteFile.writeFile("src/QLNV.txt", employees);
         System.out.println("Thêm nhân viên thành công!!");
 
     }
@@ -87,17 +87,17 @@ public class ManagerEmployee {
     public void updateEmployee(String id) throws IOException {
         for (Employee e : employees) {
             if (e.getId().equals(id)) {
-                String idNv = getIDNv();
-                String nameNv = getNameNv();
-                String ageNv = getAgeNv();
-                String phoneNv = getPhoneNv();
-                String emailNv = getEmailNv();
-                boolean status = isStatusNv();
-                e.setId(idNv);
-                e.setName(nameNv);
-                e.setAge(ageNv);
-                e.setPhone(phoneNv);
-                e.setEmail(emailNv);
+                String idEmp = getIDEmp();
+                String nameEmp = getNameEmp();
+                String ageEmp = getAgeEmp();
+                String phoneEmp = getPhoneEmp();
+                String emailEmp = getEmailEmp();
+                boolean status = isStatusEmp();
+                e.setId(idEmp);
+                e.setName(nameEmp);
+                e.setAge(ageEmp);
+                e.setPhone(phoneEmp);
+                e.setEmail(emailEmp);
                 e.setStatus(status);
                 if (e instanceof EmployeeFullTime) {
                     System.out.println("Nhập số tiền thưởng: ");
@@ -109,34 +109,35 @@ public class ManagerEmployee {
                     System.out.println("Nhập lương cứng: ");
                     double luongCung = Double.parseDouble(scanner.nextLine());
                     ((EmployeeFullTime) e).setLuongCung(luongCung);
-                    ReadAndWriteFile.writeFile("src/FileTxt/QLNV.txt", employees);
+                    ReadAndWriteFile.writeFile("src/QLNV.txt", employees);
                 } else if (e instanceof EmployeePartTime) {
                     System.out.println("Nhập số giờ làm: ");
                     int time = Integer.parseInt(scanner.nextLine());
                     ((EmployeePartTime) e).setWorkingTime(time);
-                    ReadAndWriteFile.writeFile("src/FileTxt/QLNV.txt", employees);
+                    ReadAndWriteFile.writeFile("src/QLNV.txt", employees);
                 }
             }
         }
     }
 
     public void writeFile() throws IOException {
-        ReadAndWriteFile.writeFile("src/FileTxt/QLNV.txt", employees);
+        ReadAndWriteFile.writeFile("src/QLNV.txt", employees);
     }
 
-    public void sortNV() {
-        employees.sort(sortNV);
+    public void sortEmp() {
+
+        employees.sort(sortEmp);
     }
 
     public void deleteEmployee() throws IOException {
         System.out.println("Nhập ID nhân viên cần xóa: ");
         String idNv = scanner.nextLine();
         employees.removeIf(x -> x.getId().equals(idNv));
-        ReadAndWriteFile.writeFile("src/FileTxt/QLNV.txt", employees);
+        ReadAndWriteFile.writeFile("src/QLNV.txt", employees);
     }
 
 
-    private String getIDNv() {
+    private String getIDEmp() {
         while (true) {
             System.out.println("Nhập mã nhân viên:(CGxxx)");
             String idNv = scanner.nextLine();
@@ -149,7 +150,7 @@ public class ManagerEmployee {
                 }
             }
             if (!isValid) {
-                System.err.println("Mã nhân viên khoog hợp lệ. VUi lòng nhập lại!\n" + "Mã nhân viên phải bắt đầu bằng CG + số!!");
+                System.err.println("Mã nhân viên không hợp lệ. VUi lòng nhập lại!\n" + "Mã nhân viên phải bắt đầu bằng CG + số!!");
                 exist = true;
             }
             if (!exist)
@@ -157,55 +158,55 @@ public class ManagerEmployee {
         }
     }
 
-    private String getNameNv() {
+    private String getNameEmp() {
         while (true) {
             System.err.println("Nhập tên nhân viên: ");
-            String nameNV = scanner.nextLine();
+            String nameEmp = scanner.nextLine();
             boolean exist = false;
-            boolean isValid = validate.validateName(nameNV);
+            boolean isValid = validate.validateName(nameEmp);
             if (!isValid) {
                 System.err.println("Tên nhân viên không hợp lệ!Vui lòng nhập lại!\n" + "Tên nhân viên chỉ có các kí tự A-Z,a-z");
                 exist = true;
             }
             if (!exist) {
-                return nameNV;
+                return nameEmp;
             }
         }
     }
 
-    private String getAgeNv() {
+    private String getAgeEmp() {
         while (true) {
             System.out.println("Tuổi nhân viên: ");
-            String ageNV = scanner.nextLine();
+            String ageEmp = scanner.nextLine();
             boolean exist = false;
-            boolean isValid = validate.validateAge(ageNV);
+            boolean isValid = validate.validateAge(ageEmp);
             if (!isValid) {
                 System.err.println("Tuổi nhân viên không hợp lệ. Vui lòng nhập lại!\n" + "Tuổi nhân viên phải là số!!");
                 exist = true;
             }
             if (!exist) {
-                return ageNV;
+                return ageEmp;
             }
         }
     }
 
-    private String getPhoneNv() {
+    private String getPhoneEmp() {
         while (true) {
             System.out.println("Nhập số điện thoại( 9 số hoặc 10 số): ");
-            String phoneNV = scanner.nextLine();
+            String phoneEmp = scanner.nextLine();
             boolean exist = false;
-            boolean isValid = validate.validatePhone(phoneNV);
+            boolean isValid = validate.validatePhone(phoneEmp);
             if (!isValid) {
                 System.err.println("Số điện thoại không hợp lệ!Vui lòng nhập lại\n" + "Số điện thoại phải bắt đầu bằng số 0!");
                 exist = true;
             }
             if (!exist) {
-                return phoneNV;
+                return phoneEmp;
             }
         }
     }
 
-    private String getEmailNv() {
+    private String getEmailEmp() {
         while (true) {
             System.out.println("Nhập địa chỉ email: (abc@gmail.com");
             String email = scanner.nextLine();
@@ -221,7 +222,7 @@ public class ManagerEmployee {
         }
     }
 
-    private boolean isStatusNv() {
+    private boolean isStatusEmp() {
         System.out.println("Nhập trạng thái: ");
         return Boolean.parseBoolean(scanner.nextLine());
     }

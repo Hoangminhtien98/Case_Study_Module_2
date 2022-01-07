@@ -4,8 +4,7 @@ public class EmployeePartTime extends Employee{
 
     private int workingTime;
 
-    public EmployeePartTime() {
-    }
+
 
     public EmployeePartTime(String id, String name, String age, String phone, String email, boolean status, int workingTime) {
         super(id, name, age, phone, email, status);
@@ -31,5 +30,19 @@ public class EmployeePartTime extends Employee{
                 ", workingTime=" + workingTime +
                 ", lương=" + tinhLuongPartTime() +
                 '}';
+    }
+    public void display() {
+        System.out.println("Nhân viên Parttime: " +
+                "Mã nhân viên= " + id +
+                ", Tên= " + name +
+                ", Tuổi= " + age +
+                ", Số điện thoại= " + phone +
+                ", Địa chỉ email= " + email +
+                ", Trạng thái= " + status +
+                ", Số giờ làm= " + workingTime +
+                ", Lương= " + tinhLuongPartTime());
+    }
+    public String writeEmployPartTime() {
+        return id + "," + name + "," + age + "," + phone + "," + email + "," + status + "," + workingTime + "," + tinhLuongPartTime();
     }
 }
