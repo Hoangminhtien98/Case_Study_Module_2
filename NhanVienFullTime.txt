@@ -1,0 +1,2 @@
+eCode, name, age, gendor, phone, email, salary, status, dayOn, dayOff, overTime
+CGMD123456,Hoàng Tiến,24,Nam,961579256,tien@gmail.com,8.0,true,24,6,8.0
