@@ -1,1 +1,2 @@
 eCode, name, age, gendor, phone, email, salary, status, timeWork
+CGMD234567,Hoàng Tiến,24,Nam,961579256,hoang@gmail.com,1000000.0,false,16.0

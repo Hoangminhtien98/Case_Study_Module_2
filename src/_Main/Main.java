@@ -16,10 +16,10 @@ public class Main {
         ManagerEmploy managerEmploy = new ManagerEmploy();
         ManagerAcc managerAcc = new ManagerAcc();
         while (true) {
-            int a= managerAcc.login();
-            if(a==1){
+            int a = managerAcc.login();
+            if (a == 1) {
                 while (true) {
-                    System.out.println("|-----------------------MENU-----------------------|");
+                    System.out.println("|----------------------*MENU*----------------------|");
                     System.out.println("|0. Thoát Chương Trình-----------------------------|");
                     System.out.println("|1. Thêm nhân viên---------------------------------|");
                     System.out.println("|2. Tìm kiếm nhân viên theo name-------------------|");
@@ -42,7 +42,7 @@ public class Main {
                         System.out.println("Nhập lại lựa chọn");
                         continue;
                     }
-                    if (choice == 12){
+                    if (choice == 12) {
                         break;
                     }
 
@@ -150,7 +150,7 @@ public class Main {
                             break;
                     }
                 }
-            }else if(a==2){
+            } else if (a == 2) {
                 while (true) {
                     System.out.println("|-----------------------MENU-----------------------|");
                     System.out.println("|1. Tìm kiếm nhân viên theo name-------------------|");
@@ -162,7 +162,7 @@ public class Main {
                     System.out.println("|7. Thoát Chương Trình-----------------------------|");
                     System.out.println("|--------------------------------------------------|");
                     System.out.println("=>Chose: ");
-                    managerEmploy.list = managerEmploy.readFile();//Xem lại đoạn này
+                    managerEmploy.list = managerEmploy.readFile();
                     int choice = -1;
                     try {
                         choice = Integer.parseInt(scanner.nextLine());
@@ -170,7 +170,7 @@ public class Main {
                         System.out.println("Nhập lại lựa chọn");
                         continue;
                     }
-                    if (choice == 6){
+                    if (choice == 6) {
                         break;
                     }
 
@@ -209,17 +209,17 @@ public class Main {
                             }
                             break;
                         case 3:
-                            for (Employ nv : managerEmploy.list) {
-                                if (nv instanceof EmployFullTime) {
-                                    System.out.println(nv + " Lương Tháng: " + ((EmployFullTime) nv).salaryMonth());
-                                } else if (nv instanceof EmployPartTime) {
-                                    System.out.println(nv + " Lương Tháng: " + ((EmployPartTime) nv).salaryMonth());
+                            for (Employ em : managerEmploy.list) {
+                                if (em instanceof EmployFullTime) {
+                                    System.out.println(em + " Lương Tháng: " + ((EmployFullTime) em).salaryMonth());
+                                } else if (em instanceof EmployPartTime) {
+                                    System.out.println(em + " Lương Tháng: " + ((EmployPartTime) em).salaryMonth());
                                 }
                             }
                             break;
                         case 4:
-                            for (Employ nv : managerEmploy.list) {
-                                System.out.println("Mã nhân viên: " + nv.getECode() + ", Họ tên: " + nv.getName() + ", Status: " + nv.isStatus());
+                            for (Employ em : managerEmploy.list) {
+                                System.out.println("Mã nhân viên: " + em.getECode() + ", Họ tên: " + em.getName() + ", Status: " + em.isStatus());
                             }
                             break;
                         case 5:
@@ -235,14 +235,14 @@ public class Main {
     }
 
     private static int getChoice1() {
-        Scanner scanner= new Scanner(System.in);
-        while (true){
-            try{
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            try {
                 System.out.println("1. Thêm nhân viên FullTime");
                 System.out.println("2. Thêm nhân viên PartTime");
-                int choice1= Integer.parseInt(scanner.nextLine());
+                int choice1 = Integer.parseInt(scanner.nextLine());
                 return choice1;
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Vui lòng chọn lại");
             }
         }

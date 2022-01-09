@@ -1,0 +1,2 @@
+eCode, name, age, gender, phone, email, salary, status, timeWork
+CGMD123456,Minh Tiến,24,Nam,961579256,Minh@gmail.com,10000.0,true,16.0
